@@ -14,8 +14,6 @@ def func(a):
     for i in range(n):
         a[i] += 1
 
-    # function optimized to run on gpu
-
 
 @jit()
 def func2(a):
@@ -24,13 +22,12 @@ def func2(a):
 
 
 if __name__ == "__main__":
-    gpu = False
+    cuda = False
     if torch.cuda.is_available():
         logging.info("CUDA is available!")
-        gpu = True
+        cuda = True
     else:
         logging.warning("CUDA is not available.")
-
 
     a = np.ones(n, dtype=np.float64)
 
